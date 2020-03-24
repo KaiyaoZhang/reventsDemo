@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './features/reducer';
 import './index.css';
-import App from './App';
+import App from './app/layout/App';
 import * as serviceWorker from './serviceWorker';
 
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 const rootEL = document.getElementById('root');
 
+
 let render = () => {
-    ReactDOM.render(<App />, rootEL);
+    ReactDOM.render(
+        <Provider store={store}>
+            <App />
+        </Provider>,            
+        rootEL
+    );
 }
 
 if(module.hot) {
-    module.hot.accept('./App', () => {
+    module.hot.accept('./app/layout/App', () => {
         setTimeout(render)
     })
 }
