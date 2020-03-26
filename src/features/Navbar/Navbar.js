@@ -51,12 +51,13 @@ class Navbar extends Component {
                             to='/createEvent'
                         />
                         <Menu.Item
-                            name='events gallery'
-                            active={activeItem === 'events gallery'}
+                            name='Dash Board'
+                            active={activeItem === 'Dash Board'}
                             onClick={this.handleItemClick}
                             as={NavLink}
-                            to='/gallery'
+                            to='/dashboard'
                         />
+
                         {this.state.auth === 'true' ? <SignedInMenu signOut={this.handleSignedOut}/>: <SignedOutMenu signIn={this.handleSignedIn}/>}
                     </Menu>
                 </Container>

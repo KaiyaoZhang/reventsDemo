@@ -1,10 +1,23 @@
 import React from 'react';
 import { Segment, Grid, Icon, Button } from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
+import EventDetailedMap from './EventMap';
+import HostDetailModal from './HostDetails';
 
-const EventDetailsInfo = ({description, date}) => {
+const EventDetailsInfo = ({description, date, venue, venueLatLng, hostedBy, hostPhotoURL}) => {
     return (
         <Segment.Group>
             <Segment attached="top">
+                <Grid>
+                    <Grid.Column width={1}>
+                        <Icon size="large" color="teal" name="user" />
+                    </Grid.Column>
+                    <Grid.Column width={15}>
+                        <p><strong><HostDetailModal hostedBy={hostedBy} hostPhotoURL={hostPhotoURL}/></strong></p>
+                    </Grid.Column>
+                </Grid>
+            </Segment>
+            <Segment attached>
                 <Grid>
                     <Grid.Column width={1}>
                         <Icon size="large" color="teal" name="info" />
@@ -30,12 +43,27 @@ const EventDetailsInfo = ({description, date}) => {
                         <Icon name="marker" size="large" color="teal" />
                     </Grid.Column>
                     <Grid.Column width={11}>
-                    <span>Event Venue</span>
-                    </Grid.Column>
-                    <Grid.Column width={4}>
-                    <Button color="teal" size="tiny" content="Show Map" />
+                        <span>{venue}</span>
                     </Grid.Column>
                 </Grid>
+            </Segment>
+            <Segment attached>
+                <Grid verticalAlign="middle">
+                    <Grid.Column width={1}>
+                        <Icon name="picture" size="large" color="teal" />
+                    </Grid.Column>
+                    <Grid.Column width={11}>
+                        <Link to='/gallery'>
+                            <span>See more pictures</span>
+                        </Link>
+                    </Grid.Column>
+                </Grid>
+            </Segment>
+            <Segment>
+                <EventDetailedMap
+                    lat={venueLatLng.lat}
+                    lng={venueLatLng.lng}
+                />
             </Segment>
         </Segment.Group>
     )

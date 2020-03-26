@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Attendees from './EventListAttendee';
-import { Segment, Item, Icon, List, Button} from 'semantic-ui-react';
+import { Segment, Item, Icon, Button} from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { deleteEvent } from '../eventActions';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -19,6 +20,7 @@ class EventListItem extends Component {
 
     render() {
         const { title, hostPhotoURL, hostedBy, date, city, attendees, description, id } = this.props.event;
+        const newDate = moment(date).format('MMMM Do YYYY, h:mm a');
         return (
             <Segment.Group>
                 <Segment>
@@ -36,7 +38,7 @@ class EventListItem extends Component {
                 </Segment>
                 <Segment>
                     <span>
-                    <Icon name="clock" /> {date} |
+                    <Icon name="clock" /> {newDate} |
                     <Icon name="marker" /> {city}
                     </span>
                 </Segment>
@@ -50,7 +52,16 @@ class EventListItem extends Component {
                 <Segment clearing>
                     <Item.Group>
                         <Item>
-                            <Item.Description>{description}</Item.Description>
+                            <Item.Description style={{
+                                width: 500,
+                                overflow : 'hidden',
+                                textOverflow: 'ellipsis',
+                                display: '-webkit-box',
+                                webkitLineClamp: '2',
+                                webkitBoxOrient: 'vertical',
+                                }}>
+                                    {description}
+                            </Item.Description>
                         </Item>
                         <Item>
                             <Button 
@@ -60,13 +71,13 @@ class EventListItem extends Component {
                                 floated="right" 
                                 content="View" 
                             />
-                            <Button 
+                           {/*  <Button 
                                 as="a" 
                                 color="red" 
                                 floated="right" 
                                 content="Delete" 
                                 onClick={() => {this.handleDelete(this.props.event.id)}}
-                            />
+                            /> */}
                         </Item>
                     </Item.Group>
                 </Segment>

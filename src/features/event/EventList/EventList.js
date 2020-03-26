@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import EventListItem from './EventListItem';
+import { Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -14,9 +15,11 @@ class EventList extends Component {
         return (
             <Fragment>
                 {eventsData.map(e => (
-                    <EventListItem event={e} key={e.id}/>
+                    <Grid.Column width={8} key={e.id} style={{marginBottom: '2%'}}>
+                        <EventListItem event={e}/>
+                    </Grid.Column>
                 ))}
-            </Fragment>    
+            </Fragment>   
         )
     }
 }

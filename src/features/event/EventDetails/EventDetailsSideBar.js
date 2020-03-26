@@ -19,13 +19,6 @@ const EventDetailsSideBar = ({attendees}) => {
                     <Segment attached key={index}>
                         <Item.Group divided>
                         <Item style={{ position: 'relative' }}>
-                            <Label
-                            style={{ position: 'absolute' }}
-                            color='orange'
-                            ribbon='right'
-                            >
-                            Host
-                            </Label>
                             <Item.Image size='tiny' src={person.photoURL} />
                             <Item.Content verticalAlign='middle'>
                             <Item.Header as='h3'>{person.name}</Item.Header>

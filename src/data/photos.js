@@ -1,41 +1,41 @@
 const photos = [
     {
-      src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+      src: "/img/p1.jpg",
       width: 4,
       height: 3
     },
     {
-      src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+      src: "/img/p2.jpg",
       width: 1,
       height: 1
     },
     {
-      src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+      src: "/img/p3.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+      src: "/img/p4.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+      src: "/img/p5.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+      src: "/img/p6.jpg",
       width: 4,
       height: 3
     },
     {
-      src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+      src: "/img/p7.jpg",
       width: 3,
       height: 4
     },
     {
-      src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+      src: "/img/p8.jpg",
       width: 4,
       height: 3
     },
@@ -75,12 +75,12 @@ const photos = [
       height: 3
     },
     {
-      src: "https://source.unsplash.com/A-fubu9QJxE/800x533",
+      src: "/img/p15.jpg",
       width: 4,
       height: 3
     },
     {
-      src: "https://source.unsplash.com/5P91SF0zNsI/740x494",
+      src: "/img/p16.jpg",
       width: 4,
       height: 3
     }

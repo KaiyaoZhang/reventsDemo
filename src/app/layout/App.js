@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dashboard from '../../features/event/EventDashBoard/eventDashboard';
+import EventDashboard from '../../features/event/EventDashBoard/eventDashboard';
 import Navbar from '../../features/Navbar/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
@@ -11,6 +11,7 @@ import EventDetailedPage from '../../features/event/EventDetails/EventDetailedPa
 import PeopleDashBoard from '../../features/User/PeopleDashboard/PeopleDashboard';
 import UserDetailedPage from '../../features/User/UserDetails/UserDetailedPage';
 import SettingDashboard from '../../features/User/Settings/SettingsDashboard';
+import PieChart from '../../features/event/EventCharts/PieChart';
 
 class App extends Component {
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
               <Container className='main'>
                 <Switch>
                     <Route exact path='/events' render={() => (
-                      <Dashboard/>
+                      <EventDashboard/>
                     )}>
                     </Route>
                     <Route path='/events/:id' render={(props) => (
@@ -56,6 +57,10 @@ class App extends Component {
                     </Route>
                     <Route path='/gallery' render={() => (
                       <Photos/>
+                    )}>
+                    </Route>
+                    <Route path='/dashboard' render={() => (
+                      <PieChart/>
                     )}>
                     </Route>
                 </Switch>
