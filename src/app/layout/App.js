@@ -11,7 +11,7 @@ import EventDetailedPage from '../../features/event/EventDetails/EventDetailedPa
 import PeopleDashBoard from '../../features/User/PeopleDashboard/PeopleDashboard';
 import UserDetailedPage from '../../features/User/UserDetails/UserDetailedPage';
 import SettingDashboard from '../../features/User/Settings/SettingsDashboard';
-import PieChart from '../../features/event/EventCharts/PieChart';
+import ChartsDashBoard from '../../features/event/EventCharts/ChartsDashBoard';
 
 class App extends Component {
   render() {
@@ -60,7 +60,7 @@ class App extends Component {
                     )}>
                     </Route>
                     <Route path='/dashboard' render={() => (
-                      <PieChart/>
+                      <ChartsDashBoard/>
                     )}>
                     </Route>
                 </Switch>

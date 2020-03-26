@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import { Chart } from "react-google-charts";
-
-const mapStateToProps = state => {
-    return {
-        eventData: state.eventReducers
-    }
-}
 
 class PieChart extends Component {
     render() {
@@ -49,4 +42,4 @@ class PieChart extends Component {
     }
 }
 
-export default connect(mapStateToProps, null)(PieChart);
+export default PieChart;

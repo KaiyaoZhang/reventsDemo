@@ -13,7 +13,7 @@ const EventDetailsInfo = ({description, date, venue, venueLatLng, hostedBy, host
                         <Icon size="large" color="teal" name="user" />
                     </Grid.Column>
                     <Grid.Column width={15}>
-                        <p><strong><HostDetailModal hostedBy={hostedBy} hostPhotoURL={hostPhotoURL}/></strong></p>
+                        <HostDetailModal hostedBy={hostedBy} hostPhotoURL={hostPhotoURL}/>
                     </Grid.Column>
                 </Grid>
             </Segment>

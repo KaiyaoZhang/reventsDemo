@@ -16,19 +16,24 @@ const events = [
     hostPhotoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
     attendees: [
       {
-        id: 'a',
         name: 'Bob',
         photoURL: 'https://randomuser.me/api/portraits/men/80.jpg'
       },
       {
-        id: 'b',
         name: 'Tom',
         photoURL: 'https://randomuser.me/api/portraits/men/42.jpg'
       },
       {
-        id: 'c',
         name: 'Max',
         photoURL: 'https://randomuser.me/api/portraits/men/62.jpg'
+      },
+      {
+        name: 'Chris',
+        photoURL: 'https://randomuser.me/api/portraits/men/52.jpg'
+      },
+      {
+        name: 'Jade',
+        photoURL: 'https://randomuser.me/api/portraits/women/42.jpg'
       }
     ]
   },
@@ -49,20 +54,22 @@ const events = [
     hostPhotoURL: 'https://randomuser.me/api/portraits/women/22.jpg',
     attendees: [
       {
-        id: 'b',
         name: 'Tom',
         photoURL: 'https://randomuser.me/api/portraits/women/52.jpg'
       },
       {
-        id: 'a',
         name: 'Bob',
         photoURL: 'https://randomuser.me/api/portraits/men/90.jpg'
+      },
+      {
+        name: 'Rodger',
+        photoURL: 'https://randomuser.me/api/portraits/men/91.jpg'
       }
     ]
   },
   {
     id: '3',
-    title: 'St. Lawrence Market',
+    title: 'St.Lawrence Market',
     date: '2018-06-17T09:00:00',
     category: 'culture',
     description:
@@ -77,14 +84,20 @@ const events = [
     hostPhotoURL: 'https://randomuser.me/api/portraits/women/52.jpg',
     attendees: [
       {
-        id: 'b',
         name: 'Shirley',
         photoURL: 'https://randomuser.me/api/portraits/women/12.jpg'
       },
       {
-        id: 'a',
         name: 'Bob',
         photoURL: 'https://randomuser.me/api/portraits/men/90.jpg'
+      },
+      {
+        name: 'Jordan',
+        photoURL: 'https://randomuser.me/api/portraits/women/10.jpg'
+      },
+      {
+        name: 'Jane',
+        photoURL: 'https://randomuser.me/api/portraits/women/9.jpg'
       }
     ]
   },
@@ -105,14 +118,16 @@ const events = [
     hostPhotoURL: 'https://randomuser.me/api/portraits/women/12.jpg',
     attendees: [
       {
-        id: 'b',
         name: 'Kathy',
         photoURL: 'https://randomuser.me/api/portraits/women/2.jpg'
       },
       {
-        id: 'a',
         name: 'Bob',
         photoURL: 'https://randomuser.me/api/portraits/men/90.jpg'
+      },
+      {
+        name: 'Rio',
+        photoURL: 'https://randomuser.me/api/portraits/men/80.jpg'
       }
     ]
   },
@@ -133,12 +148,10 @@ const events = [
     hostPhotoURL: 'https://randomuser.me/api/portraits/women/0.jpg',
     attendees: [
       {
-        id: 'b',
         name: 'Kathy',
         photoURL: 'https://randomuser.me/api/portraits/women/2.jpg'
       },
       {
-        id: 'a',
         name: 'Bob',
         photoURL: 'https://randomuser.me/api/portraits/men/90.jpg'
       }
@@ -161,12 +174,10 @@ const events = [
     hostPhotoURL: 'https://randomuser.me/api/portraits/men/12.jpg',
     attendees: [
       {
-        id: 'b',
         name: 'Robert',
         photoURL: 'https://randomuser.me/api/portraits/men/2.jpg'
       },
       {
-        id: 'a',
         name: 'Bob',
         photoURL: 'https://randomuser.me/api/portraits/men/90.jpg'
       }

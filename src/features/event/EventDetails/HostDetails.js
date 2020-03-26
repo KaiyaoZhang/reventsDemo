@@ -2,7 +2,7 @@ import React from 'react'
 import { Header, Image, Modal } from 'semantic-ui-react'
 
 const HostDetailModal = ({hostedBy, hostPhotoURL}) => (
-   <Modal trigger={<p>{hostedBy}</p>}>
+   <Modal trigger={<p><strong>{hostedBy}</strong></p>}>
     <Modal.Header>Host Info</Modal.Header>
     <Modal.Content image>
       <Image wrapped size='small' src={hostPhotoURL} />

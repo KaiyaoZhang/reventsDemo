@@ -53,7 +53,6 @@ class EventListItem extends Component {
                     <Item.Group>
                         <Item>
                             <Item.Description style={{
-                                width: 500,
                                 overflow : 'hidden',
                                 textOverflow: 'ellipsis',
                                 display: '-webkit-box',
