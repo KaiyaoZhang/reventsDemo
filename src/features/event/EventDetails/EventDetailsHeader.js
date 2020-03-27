@@ -38,7 +38,7 @@ class EventDetailsHeader extends Component {
   }
 
   render() {
-    const {title, hostedBy, category} = this.props;
+    const {title, hostedBy, category, id} = this.props;
     return(
       <Segment.Group>
           <Segment basic attached="top" style={{ padding: '0' }}>
@@ -65,7 +65,7 @@ class EventDetailsHeader extends Component {
     
           <Segment attached="bottom">
             {this.state.like ==='ture' ? <Icon name='thumbs up outline' size='big' onClick={this.handleLike}/> : <Icon name='thumbs up' size='big' onClick={this.handleDislike}/>}
-            <Button color="orange" floated="right">JOIN THIS EVENT</Button>
+            <Button color="orange" floated="right" as={Link} to={`/join/${id}`}>JOIN THIS EVENT</Button>
     
             {/* <Button color="orange" floated="right" as={Link} to={`/manage/${id}`}>
               Manage Event

@@ -44,13 +44,6 @@ class Navbar extends Component {
                             to='/events'
                         />
                         <Menu.Item
-                            name='create events'
-                            active={activeItem === 'create events'}
-                            onClick={this.handleItemClick}
-                            as={NavLink}
-                            to='/createEvent'
-                        />
-                        <Menu.Item
                             name='Dash Board'
                             active={activeItem === 'Dash Board'}
                             onClick={this.handleItemClick}

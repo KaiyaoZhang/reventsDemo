@@ -49,7 +49,7 @@ class App extends Component {
                       <SettingDashboard/>
                     )}>
                     </Route>
-                    <Route path={['/createEvent', '/manage/:id']} render={(props) => (
+                    <Route path='/join/:id' render={(props) => (
                       <EventForm
                         {...props}
                       />
