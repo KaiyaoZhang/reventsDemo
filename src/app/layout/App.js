@@ -27,8 +27,10 @@ class App extends Component {
               <Navbar/>
               <Container className='main'>
                 <Switch>
-                    <Route exact path='/events' render={() => (
-                      <EventDashboard/>
+                    <Route exact path='/events' render={(props) => (
+                      <EventDashboard
+                      {...props}
+                      />
                     )}>
                     </Route>
                     <Route path='/events/:id' render={(props) => (
