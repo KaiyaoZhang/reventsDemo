@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import { Menu, Segment, Container } from 'semantic-ui-react';
 import { NavLink, withRouter } from 'react-router-dom';
 import SignedOutMenu from '../Menus/SignedOutMenu';
 import SignedInMenu from '../Menus/SignedInMenu';
+
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.authReducer.isAuthenticated
+    }
+}
 
 class Navbar extends Component {
     state={
@@ -43,15 +50,16 @@ class Navbar extends Component {
                             exact
                             to='/events'
                         />
+                        {this.props.isAuthenticated && 
                         <Menu.Item
                             name='Dash Board'
                             active={activeItem === 'Dash Board'}
                             onClick={this.handleItemClick}
                             as={NavLink}
                             to='/dashboard'
-                        />
+                        />}
 
-                        {this.state.auth === 'true' ? <SignedInMenu signOut={this.handleSignedOut}/>: <SignedOutMenu signIn={this.handleSignedIn}/>}
+                        {this.props.isAuthenticated === true ? <SignedInMenu signOut={this.handleSignedOut}/>: <SignedOutMenu signIn={this.handleSignedIn}/>}
                     </Menu>
                 </Container>
             </Segment>
@@ -59,4 +67,4 @@ class Navbar extends Component {
     }
 }
 
-export default withRouter(Navbar);
+export default connect(mapStateToProps, null)(withRouter(Navbar));

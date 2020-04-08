@@ -1,46 +1,86 @@
-import React from 'react';
-import { Form, Segment, Button, Modal } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import TextInput from '../../app/form/TextInput';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {createNewUser} from './authActions';
+import { Form, Segment, Button, Modal, Divider } from 'semantic-ui-react';
+import SocialLogin from './SocialLogin/SocialLogin';
 
-const RegisterForm = () => {
-  return (
-    <Modal trigger={
-            <Button
-                basic
-                inverted
-                content='Sign Up'
-                style={{marginLeft: '10px'}}
-            />}
-            size='mini'
-    >
-      <Form size="large">
-        <Segment>
-          <Field
-            name="displayName"
-            type="text"
-            component={TextInput}
-            placeholder="Known As"
-          />
-          <Field
-            name="email"
-            type="text"
-            component={TextInput}
-            placeholder="Email"
-          />
-          <Field
-            name="password"
-            type="password"
-            component={TextInput}
-            placeholder="Password"
-          />
-          <Button fluid size="large" color="teal">
-            Register
-          </Button>
-        </Segment>
-      </Form>
-    </Modal>
-  );
-};
+const mapDispachToProps = dispatch => {
+  return {
+    createUser : (email, password, username) => dispatch(createNewUser(email, password, username))
+  }
+}
 
-export default reduxForm({form:'registerForm'})(RegisterForm);
+class RegisterForm extends Component {
+
+  state={
+    username: '',
+    email: '',
+    password: '',
+    modalOpen: false
+  }
+
+  handleOpen = () => this.setState({ modalOpen: true })
+
+  handleOnChange = (evt) => {
+    this.setState({
+      [evt.target.name]: evt.target.value
+    })
+  }
+
+  onSubmit = () => {
+    this.props.createUser(this.state.email, this.state.password, this.state.username)
+    this.setState({ modalOpen: false })
+  }
+
+  render() {
+    return (
+      <Modal trigger={
+              <Button
+                  basic
+                  inverted
+                  content='Sign Up'
+                  style={{marginLeft: '10px'}}
+                  onClick={this.handleOpen}
+              />}
+              open={this.state.modalOpen}
+              size='mini'
+      >
+        <Form size="large">
+          <Segment>
+            <Form.Field>
+              <input 
+                name='username'
+                placeholder='UserName'
+                onChange={this.handleOnChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <input
+                name='email'
+                placeholder='Email'
+                onChange={this.handleOnChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                onChange={this.handleOnChange}
+              />
+            </Form.Field>
+            <Button fluid size="large" color="teal" onClick={this.onSubmit}>
+              Register
+            </Button>
+            <Divider horizontal>
+              or
+            </Divider>
+            <SocialLogin/>
+          </Segment>
+        </Form>
+      </Modal>
+    );
+  }
+}
+
+export default connect(null, mapDispachToProps)(RegisterForm);

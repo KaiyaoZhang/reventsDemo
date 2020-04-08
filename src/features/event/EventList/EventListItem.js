@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import Attendees from './EventListAttendee';
-import { Segment, Item, Icon, Button} from 'semantic-ui-react';
+import { Segment, Item, Icon, Button, Modal, Header} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { deleteEvent } from '../eventActions';
 import { Link } from 'react-router-dom';
+
+const mapStateToProps = state => {
+    return {
+        isAuthenticated : state.authReducer.isAuthenticated
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -14,6 +20,14 @@ const mapDispatchToProps = dispatch => {
 
 class EventListItem extends Component {
    
+    state = {
+        modalOpen: false
+    }
+
+    handleOpen = () => this.setState({ modalOpen: true })
+
+    handleClose = () => this.setState({ modalOpen: false })
+
     handleDelete = (eventId) => {
         this.props.deleteEvent(eventId);
     }
@@ -63,13 +77,37 @@ class EventListItem extends Component {
                             </Item.Description>
                         </Item>
                         <Item>
+                            {this.props.isAuthenticated ? 
                             <Button 
                                 as={Link}
                                 to= {`/events/${id}`} 
                                 color="teal" 
                                 floated="right" 
                                 content="View" 
-                            />
+                            /> : 
+                            <Modal
+                            trigger={<Button 
+                                        color="teal" 
+                                        floated="right" 
+                                        content="View"  
+                                        onClick={this.handleOpen}
+                                    />}
+                            open={this.state.modalOpen}
+                            onClose={this.handleClose}
+                            basic
+                            size='small'
+                          >
+                            <Header icon='browser' content='You are not logged in yet' />
+                            <Modal.Content>
+                              <h3>Please login first and then click on to view event details.</h3>
+                            </Modal.Content>
+                            <Modal.Actions>
+                              <Button color='green' onClick={this.handleClose} inverted>
+                                <Icon name='checkmark' /> Got it
+                              </Button>
+                            </Modal.Actions>
+                          </Modal>}
+                            
                            {/*  <Button 
                                 as="a" 
                                 color="red" 
@@ -85,4 +123,4 @@ class EventListItem extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(EventListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(EventListItem);

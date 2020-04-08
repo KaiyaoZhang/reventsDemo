@@ -20,7 +20,8 @@ const mapStateToProps = (state, ownProps) => {
     }
     
     return {
-        initialValues: eventData[0]
+        initialValues: eventData[0],
+        userImg : state.authReducer.user.photoURL
     }
 }
 
@@ -50,6 +51,12 @@ class EventForm extends Component {
 
     onFormSubmit = (values) => {
         const id = this.props.match.params.id;
+        let img = '';
+        if(this.props.userImg == null){
+            img = '/img/user.png'
+        }else{
+            img = this.props.userImg;
+        }
         if(id){
             const updateEvent = {
                 ...values,
@@ -57,7 +64,7 @@ class EventForm extends Component {
                     ...values.attendees,
                     {
                         name: values.firstName,
-                        photoURL: '/img/user.png'
+                        photoURL: img
                     }
                 ]
             }

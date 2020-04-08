@@ -1,9 +1,9 @@
 import React from 'react';
-import {Menu, Button} from 'semantic-ui-react';
+import {Menu} from 'semantic-ui-react';
 import LoginModal from '../auth/LoginModal';
 import RegisterModal from '../auth/RegisterModal';
 
-const SignedOutMenu = ({signIn}) => {
+const SignedOutMenu = () => {
     return (
         <Menu.Item position='right'>
             {/* <Button
