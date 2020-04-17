@@ -78,7 +78,7 @@ class EventListItem extends Component {
                         </Item>
                         <Item>
                             {this.props.isAuthenticated ? 
-                            <Button 
+                            <Button     
                                 as={Link}
                                 to= {`/events/${id}`} 
                                 color="teal" 

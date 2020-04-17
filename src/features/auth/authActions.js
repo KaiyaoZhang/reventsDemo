@@ -98,10 +98,18 @@ const requestLogin = () => {
         user.updateProfile({
           displayName: username
         }).then(() => {
+          dispatch(createUser(user));
           console.log('successed!');
+        }).catch(e => {
+          console.log(e)
+        })
+
+        Firebase.firestore().collection("users").doc(user.uid).set({
+          displayName: username,
+          email: email,
+          createdAt: new Date()
         })
       }
-      dispatch(createUser(user));
     })
     .catch(e => {
       alert(e);

@@ -19,7 +19,7 @@ class EventTable extends Component {
                 <Table.Body>
                     {this.props.eventData.map((el, index) => {
                         return (
-                            <Table.Row>
+                            <Table.Row key={index}>
                                 <Table.Cell>
                                 <Header as='h4' image>
                                     <Image src={el.hostPhotoURL} rounded size='mini' />

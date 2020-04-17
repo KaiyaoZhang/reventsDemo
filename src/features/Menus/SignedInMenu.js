@@ -19,17 +19,42 @@ const mapDispatchToProps = dispatch => {
 
 class SignedInMenu extends Component {
   
+  state = {
+    showPic: false,
+    userImg: '',
+    userName: ''
+  }
+
+  
   handleLogOut = () => {
     this.props.logOut();
     this.props.history.push('/');
   }  
+
+  componentDidMount(){
+    if(this.props.userImg !== null){
+      this.setState({
+        showPic: true,
+        userImg: this.props.userImg
+      })
+    }
+  }
+  
+  componentWillReceiveProps(nextProps){
+      if(nextProps.userImg !== this.props.userImg){
+        this.setState({
+          showPic: true,
+          userImg: nextProps.userImg
+        })
+      }
+  }
   
   render() {
       return (
         <Menu.Item position="right">
-          {this.props.userImg == null ? 
+          {this.state.showPic == false ? 
             <Image avatar spaced="right" src='/img/user.png' /> 
-            : <Image avatar spaced="right" src={this.props.userImg} /> }
+            : <Image avatar spaced="right" src={this.state.userImg} /> }
           <Dropdown pointing="top left" text={this.props.userName}>
             <Dropdown.Menu>
               <Dropdown.Item text="My Profile" icon="user" as={NavLink} to='/settings'/>

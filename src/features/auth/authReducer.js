@@ -38,6 +38,7 @@ const authReducer = (state = {
         case SOCIAL_LOGIN:
           return {
             ...state,
+            loginError: false,
             isAuthenticated: true,
             user: action.user.profile
           }; 
