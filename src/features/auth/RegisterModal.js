@@ -27,9 +27,13 @@ class RegisterForm extends Component {
     })
   }
 
+  closeModal = () => {
+    this.setState({ modalOpen: false })
+  }
+
   onSubmit = () => {
     this.props.createUser(this.state.email, this.state.password, this.state.username)
-    this.setState({ modalOpen: false })
+    this.closeModal();
   }
 
   render() {
@@ -43,6 +47,7 @@ class RegisterForm extends Component {
                   onClick={this.handleOpen}
               />}
               open={this.state.modalOpen}
+              onClose={this.closeModal}
               size='mini'
       >
         <Form size="large">

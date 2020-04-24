@@ -28,9 +28,13 @@ class LoginForm extends Component {
     })
   }
 
+  closeModal = () => {
+    this.setState({ modalOpen: false })
+  }
+
   onSubmit = () => {
     this.props.userLogin(this.state.email, this.state.password);
-    this.setState({ modalOpen: false })
+    this.closeModal();
   }
 
   render() {
@@ -47,6 +51,7 @@ class LoginForm extends Component {
                         onClick={this.handleOpen}
                     />}
             open={this.state.modalOpen}
+            onClose={this.closeModal}
         >
         <Form error size="large">
         <Segment>

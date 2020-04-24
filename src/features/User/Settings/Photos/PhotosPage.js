@@ -30,7 +30,7 @@ const PhotosPage = ({user}) => {
         // gets the download url then sets the image from firebase as the value for the imgUrl key:
         Firebase.storage().ref('images').child(image.name).getDownloadURL()
         .then(url => {
-            setImage(Object.assign({...image, imgUrl: url}))
+            setImage({...image, imgUrl: url})
             Firebase.updateProfile({
                 photoURL: url
             }).then(() => {
